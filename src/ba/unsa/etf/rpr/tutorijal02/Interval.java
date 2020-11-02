@@ -25,11 +25,15 @@ public class Interval {
     }
 
     public boolean isIn(double tacka) {
-        return false;
+        // Provjera rubnih slucajeva
+        if(Double.compare(tacka, pocetnaTacka) == 0 && (!pripadnostIntervaluPocetneTacke)) return false;
+        if(Double.compare(tacka, krajnjaTacka) == 0 && (!pripadnostIntervaluKrajnjeTacke)) return false;
+        // Ako je tacka unutar intervala
+        return (tacka >= pocetnaTacka && tacka <= krajnjaTacka);
     }
 
     public boolean isNull() {
-        return false;
+        return Double.compare(pocetnaTacka, krajnjaTacka) == 0;
     }
 
     public Interval intersect(Interval interval) {
