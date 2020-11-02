@@ -21,7 +21,7 @@ public class Interval {
     }
 
     public static Interval intersect(Interval i, Interval i2) {
-        return null;
+        return i.intersect(i2);
     }
 
     public boolean isIn(double tacka) {
@@ -37,6 +37,24 @@ public class Interval {
     }
 
     public Interval intersect(Interval interval) {
-        return null;
+        Interval intersect = new Interval();
+        intersect.pocetnaTacka = Math.max(this.pocetnaTacka, interval.pocetnaTacka);
+        intersect.krajnjaTacka = Math.min(this.krajnjaTacka, interval.krajnjaTacka);
+        intersect.pripadnostIntervaluPocetneTacke = Double.compare(intersect.pocetnaTacka, this.pocetnaTacka) == 0 ? this.pripadnostIntervaluPocetneTacke : interval.pripadnostIntervaluPocetneTacke;
+        intersect.pripadnostIntervaluPocetneTacke = Double.compare(intersect.krajnjaTacka, this.krajnjaTacka) == 0 ? this.pripadnostIntervaluKrajnjeTacke : interval.pripadnostIntervaluKrajnjeTacke;
+        return intersect;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Interval interval = (Interval) obj;
+        boolean jednakostPocetnihTacki = Double.compare(this.pocetnaTacka, interval.pocetnaTacka) == 0;
+        boolean jednakostKrajnjihTacki = Double.compare(this.krajnjaTacka, interval.krajnjaTacka) == 0;
+        boolean jednakostPripadnostiIntervalaPocetnihTacki = this.pripadnostIntervaluPocetneTacke == interval.pripadnostIntervaluPocetneTacke;
+        boolean jednakostPripadnostiIntervalaKrajnjihTacki = this.pripadnostIntervaluKrajnjeTacke == interval.pripadnostIntervaluKrajnjeTacke;
+        // Rubni slucaj
+        if(jednakostPocetnihTacki && !jednakostPripadnostiIntervalaPocetnihTacki) return false;
+        if(jednakostKrajnjihTacki && !jednakostPripadnostiIntervalaKrajnjihTacki) return false;
+        return (jednakostPocetnihTacki && jednakostKrajnjihTacki);
     }
 }
