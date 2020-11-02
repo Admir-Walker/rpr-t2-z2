@@ -41,7 +41,7 @@ public class Interval {
         intersect.pocetnaTacka = Math.max(this.pocetnaTacka, interval.pocetnaTacka);
         intersect.krajnjaTacka = Math.min(this.krajnjaTacka, interval.krajnjaTacka);
         intersect.pripadnostIntervaluPocetneTacke = Double.compare(intersect.pocetnaTacka, this.pocetnaTacka) == 0 ? this.pripadnostIntervaluPocetneTacke : interval.pripadnostIntervaluPocetneTacke;
-        intersect.pripadnostIntervaluPocetneTacke = Double.compare(intersect.krajnjaTacka, this.krajnjaTacka) == 0 ? this.pripadnostIntervaluKrajnjeTacke : interval.pripadnostIntervaluKrajnjeTacke;
+        intersect.pripadnostIntervaluKrajnjeTacke = Double.compare(intersect.krajnjaTacka, this.krajnjaTacka) == 0 ? this.pripadnostIntervaluKrajnjeTacke : interval.pripadnostIntervaluKrajnjeTacke;
         return intersect;
     }
 
