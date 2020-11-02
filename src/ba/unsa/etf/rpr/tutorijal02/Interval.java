@@ -33,7 +33,8 @@ public class Interval {
     }
 
     public boolean isNull() {
-        return Double.compare(pocetnaTacka, krajnjaTacka) == 0;
+        return Double.compare(pocetnaTacka, krajnjaTacka) == 0 &&
+                !pripadnostIntervaluKrajnjeTacke && !pripadnostIntervaluPocetneTacke;
     }
 
     public Interval intersect(Interval interval) {
