@@ -57,4 +57,17 @@ public class Interval {
         if(jednakostKrajnjihTacki && !jednakostPripadnostiIntervalaKrajnjihTacki) return false;
         return (jednakostPocetnihTacki && jednakostKrajnjihTacki);
     }
+
+    private int convertBooleanToInt(Boolean b){
+        return b ? 1 : 0;
+    }
+    @Override
+    public String toString() {
+        if(this.isNull()) return new String("()");
+        // Primjeri ispisa [2.2,2.5), [2.2,2.5), [2.2,2.6]
+        char[] zagrade = {'(','[',')',']'}; // 0, 1, 2, 3
+        char lijevaZagradaIspisa = zagrade[convertBooleanToInt(pripadnostIntervaluPocetneTacke)];
+        char desnaZagradaIspisa = zagrade[convertBooleanToInt(pripadnostIntervaluKrajnjeTacke) + 2];
+        return new String(""+lijevaZagradaIspisa+pocetnaTacka+","+krajnjaTacka+desnaZagradaIspisa);
+    }
 }
