@@ -104,4 +104,11 @@ class IntervalTest {
         Interval tacka = new Interval(1,1,false,false);
         assertEquals("()",tacka.toString());
     }
+    @Test
+    void intersect4(){
+        Interval i1 = new Interval(1,5,true,true);
+        Interval i2 = new Interval(2,6,true,true);
+        Interval i3 = new Interval(2,111,true,true);
+        assertTrue(i1.intersect(i2).equals(i1.intersect(i3)));
+    }
 }

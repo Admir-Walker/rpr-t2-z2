@@ -3,7 +3,7 @@ package ba.unsa.etf.rpr.tutorijal02;
 public class Interval {
 
     private double pocetnaTacka, krajnjaTacka;
-    boolean pripadnostIntervaluPocetneTacke, pripadnostIntervaluKrajnjeTacke;
+    private boolean pripadnostIntervaluPocetneTacke, pripadnostIntervaluKrajnjeTacke;
 
     public Interval(double pocetnaTacka, double krajnjaTacka, boolean pripadnostIntervaluPocetneTacke, boolean pripadnostIntervaluKrajnjeTacke) throws IllegalArgumentException {
         if(pocetnaTacka > krajnjaTacka) throw new IllegalArgumentException();
